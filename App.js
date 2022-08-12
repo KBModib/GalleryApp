@@ -3,22 +3,20 @@ import * as React from 'react';
 import { TouchableOpacity, View, Text, Image,StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Gallery from './screens/Gallery';
 import Camera from './screens/Camera';
 
 function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>App Name</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgb(238, 214, 211)' }}>
+      <Text style={styles.heading}>Snapper</Text>
       <Image  
       style={styles.logo}
-      source={require('./assets/icon.png')} />
+      source={require('./assets/logo.png')} />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Gallery')}><Text>Gallery</Text></TouchableOpacity>
-      <TouchableOpacity
-      style={styles.button}
-        onPress={() => navigation.navigate('Camera')}><Text>Camera</Text></TouchableOpacity>
+        onPress={() => navigation.navigate('Camera')}>
+          <Text styles={styles.text}>Take a picture</Text>
+      </TouchableOpacity>
      <StatusBar style="auto" />
     </View>
   );
@@ -33,9 +31,13 @@ function App() {
         <Stack.Screen name="Home" component={HomeScreen}
            options={{
             headerShown: false,
-          }} />
-        <Stack.Screen name="Gallery" component={Gallery} />
-        <Stack.Screen name="Camera" component={Camera} />
+          }} 
+          />
+        <Stack.Screen name="Camera" component={Camera}
+        options={{
+          headerShown: false,
+        }}
+         />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -55,9 +57,17 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: 'rgb(233, 137, 128)',
     padding: 10,
     margin: 10,
     borderRadius: 10,
+    width: 150,
+    height: 50,
+  },
+  heading: {
+    fontSize: 50,
+    color: 'rgb(130, 29, 48)',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
