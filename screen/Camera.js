@@ -72,7 +72,7 @@ export default function App() {
           latitude,
         });
         setAddress(regionName[0]);
-        console.log(regionName, 'nothing');
+        console.log(regionName, '');
       };
     
 
@@ -91,6 +91,7 @@ export default function App() {
       MediaLibrary.saveToLibraryAsync(photo.uri).then(() => {
         setPhoto(undefined);
       });
+      alert('Photo saved to camera roll');
     };
 
     return (
