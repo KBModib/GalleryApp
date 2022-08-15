@@ -3,7 +3,8 @@ import * as React from 'react';
 import { TouchableOpacity, View, Text, Image,StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Camera from './screens/Camera';
+import Camera from './screen/Camera';
+
 
 function HomeScreen({ navigation }) {
   return (
